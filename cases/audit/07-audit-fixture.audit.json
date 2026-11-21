@@ -1,0 +1,244 @@
+{
+  "case_id": "07-audit-fixture.audit",
+  "centers": [
+    {
+      "center_id": "C-alpha"
+    },
+    {
+      "center_id": "C-beta"
+    }
+  ],
+  "events": [
+    {
+      "allocation": [
+        {
+          "center_id": "C-alpha",
+          "interval": [
+            0,
+            100
+          ]
+        },
+        {
+          "center_id": "C-beta",
+          "interval": [
+            100,
+            200
+          ]
+        }
+      ],
+      "application_id": "audit-app1",
+      "device_id": "dev-audit-app1",
+      "event_id": "evt-reg-a1",
+      "initial_generation": 0,
+      "partition_id": "LAN-z1",
+      "type": "register_application",
+      "user_id": "user-yu"
+    },
+    {
+      "allowed_ingress_centers": [
+        "C-alpha",
+        "C-beta"
+      ],
+      "application_id": "audit-app1",
+      "business_center": "C-beta",
+      "center_id": "C-alpha",
+      "destination_segment": "seg-B",
+      "device_id": "dev-audit-app1",
+      "event_id": "evt-appr-a1a",
+      "generation": 0,
+      "route_label": null,
+      "source_segment": "seg-A",
+      "type": "approval",
+      "user_id": "user-yu",
+      "validity": [
+        0,
+        100
+      ]
+    },
+    {
+      "allowed_ingress_centers": [
+        "C-alpha",
+        "C-beta"
+      ],
+      "application_id": "audit-app1",
+      "business_center": "C-alpha",
+      "center_id": "C-beta",
+      "destination_segment": "seg-B",
+      "device_id": "dev-audit-app1",
+      "event_id": "evt-appr-a1b",
+      "generation": 0,
+      "route_label": null,
+      "source_segment": "seg-A",
+      "type": "approval",
+      "user_id": "user-yu",
+      "validity": [
+        0,
+        100
+      ]
+    },
+    {
+      "application_id": "audit-app1",
+      "destination_segment": "seg-B",
+      "event_id": "evt-adm-a1",
+      "generation": 0,
+      "ingress_center": "C-alpha",
+      "lease": [
+        10,
+        20
+      ],
+      "request_digest": "digest-A1",
+      "seq": 10,
+      "source_segment": "seg-A",
+      "type": "admission"
+    },
+    {
+      "application_id": "audit-app1",
+      "destination_segment": "seg-B",
+      "event_id": "evt-adm-a2",
+      "generation": 0,
+      "ingress_center": "C-beta",
+      "lease": [
+        10,
+        20
+      ],
+      "request_digest": "digest-A2",
+      "seq": 110,
+      "source_segment": "seg-A",
+      "type": "admission"
+    },
+    {
+      "allocation": [
+        {
+          "center_id": "C-alpha",
+          "interval": [
+            0,
+            100
+          ]
+        },
+        {
+          "center_id": "C-beta",
+          "interval": [
+            100,
+            200
+          ]
+        }
+      ],
+      "application_id": "audit-app2",
+      "device_id": "dev-audit-app2",
+      "event_id": "evt-reg-a2",
+      "initial_generation": 0,
+      "partition_id": "LAN-z2",
+      "type": "register_application",
+      "user_id": "user-yu"
+    },
+    {
+      "allowed_ingress_centers": [
+        "C-alpha",
+        "C-beta"
+      ],
+      "application_id": "audit-app2",
+      "business_center": "C-beta",
+      "center_id": "C-alpha",
+      "destination_segment": "seg-D",
+      "device_id": "dev-audit-app2",
+      "event_id": "evt-appr-a2a",
+      "generation": 0,
+      "route_label": "RL-1",
+      "source_segment": "seg-C",
+      "type": "approval",
+      "user_id": "user-yu",
+      "validity": [
+        0,
+        100
+      ]
+    },
+    {
+      "allowed_ingress_centers": [
+        "C-alpha",
+        "C-beta"
+      ],
+      "application_id": "audit-app2",
+      "business_center": "C-beta",
+      "center_id": "C-beta",
+      "destination_segment": "seg-D",
+      "device_id": "dev-audit-app2",
+      "event_id": "evt-appr-a2b",
+      "generation": 0,
+      "route_label": "RL-1",
+      "source_segment": "seg-C",
+      "type": "approval",
+      "user_id": "user-yu",
+      "validity": [
+        0,
+        100
+      ]
+    },
+    {
+      "application_id": "audit-app2",
+      "destination_segment": "seg-D",
+      "event_id": "evt-adm-a3",
+      "generation": 0,
+      "ingress_center": "C-alpha",
+      "lease": [
+        10,
+        20
+      ],
+      "request_digest": "digest-A3",
+      "seq": 10,
+      "source_segment": "seg-C",
+      "type": "admission"
+    },
+    {
+      "action": "shorten_lease",
+      "application_id": "audit-app1",
+      "center_id": "C-beta",
+      "event_id": "evt-rev-a-gap",
+      "new_end": 15,
+      "revocation_seq": 2,
+      "type": "revocation"
+    },
+    {
+      "application_id": "audit-app1",
+      "destination_segment": "seg-B",
+      "event_id": "evt-adm-a4-gapped",
+      "generation": 0,
+      "ingress_center": "C-beta",
+      "lease": [
+        10,
+        12
+      ],
+      "request_digest": "digest-A4",
+      "seq": 120,
+      "source_segment": "seg-A",
+      "type": "admission"
+    }
+  ],
+  "partitions": [
+    {
+      "allowed_ingress_centers": [
+        "C-alpha",
+        "C-beta"
+      ],
+      "classification_downgrade": false,
+      "partition_id": "LAN-z1",
+      "require_distinct_ingress": false,
+      "segments": [
+        "seg-A",
+        "seg-B"
+      ]
+    },
+    {
+      "allowed_ingress_centers": [
+        "C-alpha",
+        "C-beta"
+      ],
+      "classification_downgrade": true,
+      "partition_id": "LAN-z2",
+      "require_distinct_ingress": true,
+      "segments": [
+        "seg-C",
+        "seg-D"
+      ]
+    }
+  ]
+}

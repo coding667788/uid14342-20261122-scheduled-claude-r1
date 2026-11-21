@@ -1,0 +1,123 @@
+{
+  "case_id": "03-route-label-and-revoke-race.admit01",
+  "centers": [
+    {
+      "center_id": "C-alpha"
+    },
+    {
+      "center_id": "C-beta"
+    }
+  ],
+  "events": [
+    {
+      "allocation": [
+        {
+          "center_id": "C-alpha",
+          "interval": [
+            0,
+            80
+          ]
+        },
+        {
+          "center_id": "C-beta",
+          "interval": [
+            80,
+            160
+          ]
+        }
+      ],
+      "application_id": "app3",
+      "device_id": "dev-app3",
+      "event_id": "evt-reg-3",
+      "initial_generation": 0,
+      "partition_id": "LAN-z2",
+      "type": "register_application",
+      "user_id": "user-yu"
+    },
+    {
+      "allowed_ingress_centers": [
+        "C-alpha",
+        "C-beta"
+      ],
+      "application_id": "app3",
+      "business_center": "C-alpha",
+      "center_id": "C-alpha",
+      "destination_segment": "seg-D",
+      "device_id": "dev-app3",
+      "event_id": "evt-appr-3a",
+      "generation": 0,
+      "route_label": "RL-7",
+      "source_segment": "seg-C",
+      "type": "approval",
+      "user_id": "user-yu",
+      "validity": [
+        0,
+        80
+      ]
+    },
+    {
+      "allowed_ingress_centers": [
+        "C-alpha",
+        "C-beta"
+      ],
+      "application_id": "app3",
+      "business_center": "C-alpha",
+      "center_id": "C-beta",
+      "destination_segment": "seg-D",
+      "device_id": "dev-app3",
+      "event_id": "evt-appr-3b",
+      "generation": 0,
+      "route_label": "RL-9",
+      "source_segment": "seg-C",
+      "type": "approval",
+      "user_id": "user-yu",
+      "validity": [
+        0,
+        80
+      ]
+    },
+    {
+      "application_id": "app3",
+      "destination_segment": "seg-D",
+      "event_id": "evt-adm-3-label",
+      "generation": 0,
+      "ingress_center": "C-beta",
+      "lease": [
+        10,
+        20
+      ],
+      "request_digest": "digest-3L",
+      "seq": 10,
+      "source_segment": "seg-C",
+      "type": "admission"
+    }
+  ],
+  "partitions": [
+    {
+      "allowed_ingress_centers": [
+        "C-alpha",
+        "C-beta"
+      ],
+      "classification_downgrade": false,
+      "partition_id": "LAN-z1",
+      "require_distinct_ingress": false,
+      "segments": [
+        "seg-A",
+        "seg-B"
+      ]
+    },
+    {
+      "allowed_ingress_centers": [
+        "C-alpha",
+        "C-beta"
+      ],
+      "classification_downgrade": true,
+      "partition_id": "LAN-z2",
+      "require_distinct_ingress": true,
+      "segments": [
+        "seg-C",
+        "seg-D"
+      ]
+    }
+  ]
+}

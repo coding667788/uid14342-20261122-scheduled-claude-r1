@@ -1,0 +1,177 @@
+{
+  "case_id": "05-generation-cutover.learn",
+  "centers": [
+    {
+      "center_id": "C-alpha"
+    },
+    {
+      "center_id": "C-beta"
+    }
+  ],
+  "events": [
+    {
+      "allocation": [
+        {
+          "center_id": "C-alpha",
+          "interval": [
+            0,
+            70
+          ]
+        },
+        {
+          "center_id": "C-beta",
+          "interval": [
+            70,
+            140
+          ]
+        }
+      ],
+      "application_id": "app5",
+      "device_id": "dev-app5",
+      "event_id": "evt-reg-5",
+      "initial_generation": 0,
+      "partition_id": "LAN-z1",
+      "type": "register_application",
+      "user_id": "user-yu"
+    },
+    {
+      "allowed_ingress_centers": [
+        "C-alpha",
+        "C-beta"
+      ],
+      "application_id": "app5",
+      "business_center": "C-beta",
+      "center_id": "C-alpha",
+      "destination_segment": "seg-B",
+      "device_id": "dev-app5",
+      "event_id": "evt-appr-5a0",
+      "generation": 0,
+      "route_label": null,
+      "source_segment": "seg-A",
+      "type": "approval",
+      "user_id": "user-yu",
+      "validity": [
+        0,
+        90
+      ]
+    },
+    {
+      "allowed_ingress_centers": [
+        "C-alpha",
+        "C-beta"
+      ],
+      "application_id": "app5",
+      "business_center": "C-alpha",
+      "center_id": "C-beta",
+      "destination_segment": "seg-B",
+      "device_id": "dev-app5",
+      "event_id": "evt-appr-5b0",
+      "generation": 0,
+      "route_label": null,
+      "source_segment": "seg-A",
+      "type": "approval",
+      "user_id": "user-yu",
+      "validity": [
+        0,
+        90
+      ]
+    },
+    {
+      "application_id": "app5",
+      "event_id": "evt-pub-5-1",
+      "generation": 1,
+      "type": "publish_generation"
+    },
+    {
+      "allowed_ingress_centers": [
+        "C-alpha",
+        "C-beta"
+      ],
+      "application_id": "app5",
+      "business_center": "C-beta",
+      "center_id": "C-alpha",
+      "destination_segment": "seg-B",
+      "device_id": "dev-app5",
+      "event_id": "evt-appr-5-late",
+      "generation": 0,
+      "route_label": null,
+      "source_segment": "seg-A",
+      "type": "approval",
+      "user_id": "user-yu",
+      "validity": [
+        0,
+        90
+      ]
+    },
+    {
+      "allowed_ingress_centers": [
+        "C-alpha",
+        "C-beta"
+      ],
+      "application_id": "app5",
+      "business_center": "C-beta",
+      "center_id": "C-alpha",
+      "destination_segment": "seg-B",
+      "device_id": "dev-app5",
+      "event_id": "evt-appr-5a1",
+      "generation": 1,
+      "route_label": null,
+      "source_segment": "seg-A",
+      "type": "approval",
+      "user_id": "user-yu",
+      "validity": [
+        0,
+        90
+      ]
+    },
+    {
+      "allowed_ingress_centers": [
+        "C-alpha",
+        "C-beta"
+      ],
+      "application_id": "app5",
+      "business_center": "C-alpha",
+      "center_id": "C-beta",
+      "destination_segment": "seg-B",
+      "device_id": "dev-app5",
+      "event_id": "evt-appr-5b1",
+      "generation": 1,
+      "route_label": null,
+      "source_segment": "seg-A",
+      "type": "approval",
+      "user_id": "user-yu",
+      "validity": [
+        0,
+        90
+      ]
+    }
+  ],
+  "partitions": [
+    {
+      "allowed_ingress_centers": [
+        "C-alpha",
+        "C-beta"
+      ],
+      "classification_downgrade": false,
+      "partition_id": "LAN-z1",
+      "require_distinct_ingress": false,
+      "segments": [
+        "seg-A",
+        "seg-B"
+      ]
+    },
+    {
+      "allowed_ingress_centers": [
+        "C-alpha",
+        "C-beta"
+      ],
+      "classification_downgrade": true,
+      "partition_id": "LAN-z2",
+      "require_distinct_ingress": true,
+      "segments": [
+        "seg-C",
+        "seg-D"
+      ]
+    }
+  ]
+}

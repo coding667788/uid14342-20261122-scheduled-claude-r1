@@ -1,0 +1,156 @@
+{
+  "case_id": "04-gap-watermark-recovery.admit02",
+  "centers": [
+    {
+      "center_id": "C-alpha"
+    },
+    {
+      "center_id": "C-beta"
+    }
+  ],
+  "events": [
+    {
+      "allocation": [
+        {
+          "center_id": "C-alpha",
+          "interval": [
+            0,
+            60
+          ]
+        },
+        {
+          "center_id": "C-beta",
+          "interval": [
+            60,
+            120
+          ]
+        }
+      ],
+      "application_id": "app4",
+      "device_id": "dev-app4",
+      "event_id": "evt-reg-4",
+      "initial_generation": 0,
+      "partition_id": "LAN-z1",
+      "type": "register_application",
+      "user_id": "user-yu"
+    },
+    {
+      "allowed_ingress_centers": [
+        "C-alpha",
+        "C-beta"
+      ],
+      "application_id": "app4",
+      "business_center": "C-beta",
+      "center_id": "C-alpha",
+      "destination_segment": "seg-B",
+      "device_id": "dev-app4",
+      "event_id": "evt-appr-4a",
+      "generation": 0,
+      "route_label": null,
+      "source_segment": "seg-A",
+      "type": "approval",
+      "user_id": "user-yu",
+      "validity": [
+        0,
+        100
+      ]
+    },
+    {
+      "allowed_ingress_centers": [
+        "C-alpha",
+        "C-beta"
+      ],
+      "application_id": "app4",
+      "business_center": "C-alpha",
+      "center_id": "C-beta",
+      "destination_segment": "seg-B",
+      "device_id": "dev-app4",
+      "event_id": "evt-appr-4b",
+      "generation": 0,
+      "route_label": null,
+      "source_segment": "seg-A",
+      "type": "approval",
+      "user_id": "user-yu",
+      "validity": [
+        0,
+        100
+      ]
+    },
+    {
+      "action": "shorten_lease",
+      "application_id": "app4",
+      "center_id": "C-beta",
+      "event_id": "evt-rev-4-gap",
+      "new_end": 60,
+      "revocation_seq": 1,
+      "type": "revocation"
+    },
+    {
+      "application_id": "app4",
+      "destination_segment": "seg-B",
+      "event_id": "evt-adm-4-during-gap",
+      "generation": 0,
+      "ingress_center": "C-beta",
+      "lease": [
+        10,
+        20
+      ],
+      "request_digest": "digest-4G",
+      "seq": 70,
+      "source_segment": "seg-A",
+      "type": "admission"
+    },
+    {
+      "action": "shorten_lease",
+      "application_id": "app4",
+      "center_id": "C-beta",
+      "event_id": "evt-rev-4-fill",
+      "new_end": 50,
+      "revocation_seq": 0,
+      "type": "revocation"
+    },
+    {
+      "application_id": "app4",
+      "destination_segment": "seg-B",
+      "event_id": "evt-adm-4-at-boundary",
+      "generation": 0,
+      "ingress_center": "C-beta",
+      "lease": [
+        20,
+        50
+      ],
+      "request_digest": "digest-4B",
+      "seq": 71,
+      "source_segment": "seg-A",
+      "type": "admission"
+    }
+  ],
+  "partitions": [
+    {
+      "allowed_ingress_centers": [
+        "C-alpha",
+        "C-beta"
+      ],
+      "classification_downgrade": false,
+      "partition_id": "LAN-z1",
+      "require_distinct_ingress": false,
+      "segments": [
+        "seg-A",
+        "seg-B"
+      ]
+    },
+    {
+      "allowed_ingress_centers": [
+        "C-alpha",
+        "C-beta"
+      ],
+      "classification_downgrade": true,
+      "partition_id": "LAN-z2",
+      "require_distinct_ingress": true,
+      "segments": [
+        "seg-C",
+        "seg-D"
+      ]
+    }
+  ]
+}
